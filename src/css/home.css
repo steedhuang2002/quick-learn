@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
+
+#name {
+  font-family: "Oswald", sans-serif;
+  color: #3b2228;
+  position: absolute;
+  left: 50%;
+  top: 37%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  font-size: 22vw;
+  user-select: none;
+}
+
+#blob {
+  position: absolute;
+  left: 50%;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+#viewBut {
+  font-family: "Oswald", sans-serif;
+  background-color: #ea5f26;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.btn-large {
+  font-size: 3.5vw;
+  height: 15%;
+  width: 25%;
+}
+
+body,
+html {
+  background-color: #fcfaf0;
+  overflow: hidden;
+}

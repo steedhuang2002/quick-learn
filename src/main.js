@@ -2,14 +2,22 @@ const electron = require("electron");
 const url = require("url");
 const path = require("path");
 
-const { app, BrowserWindow, Menu } = electron;
+const { app, BrowserWindow, Menu, ipcMain } = electron;
+
+// Set environment
+process.env.NODE_ENV = "development"; // production
 
 let mainWindow, addWindow;
 
 // Listen for app to be ready
 app.on("ready", () => {
   // Create new window
-  mainWindow = new BrowserWindow({});
+  mainWindow = new BrowserWindow({
+    webPreferences: {
+      nodeIntegration: true
+    },
+    resizable: false
+  });
   // Load html into window
   mainWindow.loadURL(
     url.format({
@@ -18,6 +26,9 @@ app.on("ready", () => {
       slashes: true
     })
   );
+
+  mainWindow.setMenuBarVisibility(false);
+
   // Quit all windows when closed
   mainWindow.on("closed", () => {
     app.quit();
@@ -35,7 +46,10 @@ function createAddWindow() {
   addWindow = new BrowserWindow({
     width: 300,
     height: 200,
-    title: "Add New Deck"
+    title: "Add New Deck",
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
   // Load html into window
   addWindow.loadURL(
@@ -51,6 +65,12 @@ function createAddWindow() {
   });
 }
 
+// Catch addDeck:add
+ipcMain.on("addDeck:add", (e, deck) => {
+  mainWindow.webContents.send("addDeck:add", deck);
+  addWindow.close();
+});
+
 // Create menu template
 const mainMenuTemplate = [
   {
@@ -60,6 +80,7 @@ const mainMenuTemplate = [
         label: "Add Deck",
         click() {
           createAddWindow();
+          // mainWindow.webContents.send("addDeck:clear")
         }
       },
       {
@@ -75,7 +96,7 @@ const mainMenuTemplate = [
   },
   {
     label: "Quit",
-    accelerator: process.platform == "darwin" ? "Command+Q" : "Ctrl+Q",
+    accelerator: process.platform == "darwin" ? "Command+W" : "Ctrl+W",
     click() {
       app.quit();
     }
@@ -94,7 +115,7 @@ if (process.env.NODE_ENV !== "production") {
     submenu: [
       {
         label: "Toggle DevTools",
-        accelerator: process.platform == "darwin" ? "Command+I" : "Ctrl+I",
+        accelerator: process.platform == "darwin" ? "Command+Shift+I" : "Ctrl+Shift+I",
         click(item, focusedWindow) {
           focusedWindow.toggleDevTools();
         }

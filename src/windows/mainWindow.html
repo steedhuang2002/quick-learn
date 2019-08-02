@@ -1,9 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Quick Learn</title>
+    <title>
+      Quick Learn
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="../css/home.css" />
   </head>
   <body>
-    <h1>Quick Learn</h1>
+    <!--Elements-->
+    <div id="name">
+      QuickLearn
+    </div>
+    <img src="../../assets/test4.svg" height="150%" width="150%" id="blob" />
+    <button class="waves-effect waves-light btn btn-large" type="submit" id="viewBut">
+      View Decks
+    </button>
+
+    <!--JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      /*
+      const electron = require("electron");
+      const { ipcRenderer } = electron;
+
+      // Add deck
+      ipcRenderer.on("addDeck:add", (e, deck) => {
+        console.log(deck);
+        document.getElementsByTagName("h1")[0].innerHTML = deck;
+      });
+
+      // Filler
+      ipcRenderer.on("addDeck:clear", () => {
+        console.log("test");
+      });
+
+      ul.addEventListener('dblclick', removeItem);
+      function removeItem(e){
+        event.target.remove();
+        if(ul.children.length == 0){
+          ul.className = '';
+        }
+      }
+      */
+    </script>
   </body>
 </html>
