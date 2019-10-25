@@ -2,7 +2,7 @@
 
 #name {
   font-family: "Oswald", sans-serif;
-  color: #3b2228;
+  color: #0c0e30;
   position: absolute;
   left: 50%;
   top: 37%;
@@ -15,10 +15,10 @@
 #blob {
   position: absolute;
   left: 50%;
-  top: 53%;
+  top: 60%;
   transform: translate(-50%, -50%);
-  opacity: 0.3;
-  z-index: 0;
+  opacity: 0.4;
+  z-index: -1;
   pointer-events: none;
   user-select: none;
 }
@@ -27,8 +27,9 @@
   font-family: "Oswald", sans-serif;
   background-color: #ea5f26;
   position: absolute;
+  width: 30%;
   left: 50%;
-  top: 70%;
+  top: 75%;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
@@ -41,6 +42,6 @@
 
 body,
 html {
-  background-color: #fcfaf0;
+  background-color: #eef5f8;
   overflow: hidden;
 }

@@ -16,7 +16,10 @@ app.on("ready", () => {
     webPreferences: {
       nodeIntegration: true
     },
-    resizable: false
+    minHeight: 500,
+    minWidth: 600,
+    resizable: true,
+    frame: false
   });
   // Load html into window
   mainWindow.loadURL(
