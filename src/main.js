@@ -96,13 +96,6 @@ const mainMenuTemplate = [
         label: "Switch Deck"
       }
     ]
-  },
-  {
-    label: "Quit",
-    accelerator: process.platform == "darwin" ? "Command+W" : "Ctrl+W",
-    click() {
-      app.quit();
-    }
   }
 ];
 

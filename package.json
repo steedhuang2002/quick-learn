@@ -13,6 +13,7 @@
   "author": "Steed Huang",
   "license": "MIT",
   "dependencies": {
+    "custom-electron-titlebar": "^3.1.0",
     "electron": "^5.0.3"
   }
 }
